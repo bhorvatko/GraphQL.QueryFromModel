@@ -1,0 +1,11 @@
+﻿query {
+	query01 {
+		guidProp,
+		stringProp,
+		intProp,
+		enumerableProp {
+			nestedStringProp,
+			nestedBoolProp
+		}
+	}
+}
