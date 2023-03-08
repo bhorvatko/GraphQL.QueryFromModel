@@ -87,6 +87,26 @@ namespace GraphQL.QueryFromModel.Tests.UnitTests
             Assert.Equal("prop: {strProp: \"TestStr\", intProp: 10, listProp: [true, false]}", argumentString);
         }
 
+        [Fact]
+        public void GivenANullableWithNullValue_BuildingTheArgument_ReturnsTheExpectedResult()
+        {
+            int? argument = null;
+
+            string argumentString = argumentBuilderFactory.GetArgumentBuilder(typeof(int?)).GetArgumentString(argument, "prop", typeof(int?));
+
+            Assert.Equal("prop: null", argumentString);
+        }
+
+        [Fact]
+        public void GivenANullableReferenceTypeWithNullValue_BuildingTheArgument_ReturnsTheExpectedResult()
+        {
+            string? argument = null;
+
+            string argumentString = argumentBuilderFactory.GetArgumentBuilder(typeof(string)).GetArgumentString(argument, "prop", typeof(string));
+
+            Assert.Equal("prop: null", argumentString);
+        }
+
         private string GetArgumentString(object argument)
             => argumentBuilderFactory.GetArgumentBuilder(argument.GetType()).GetArgumentString(argument, "prop", argument.GetType());
 

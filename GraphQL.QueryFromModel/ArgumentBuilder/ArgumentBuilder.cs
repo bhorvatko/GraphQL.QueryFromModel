@@ -8,7 +8,7 @@ namespace GraphQL.QueryFromModel.ArgumentBuilder
 
         public abstract string GetArgumentValue(object propertyValue, Type propertyType);
 
-        public string GetArgumentString(object propertyValue, string propertyName, Type propertyType)
-            => $"{propertyName.ToCamelCase()}: {GetArgumentValue(propertyValue, propertyType)}";
+        public string GetArgumentString(object? propertyValue, string propertyName, Type propertyType)
+            => propertyName.ToCamelCase() + ": " + (propertyValue == null ? "null" : GetArgumentValue(propertyValue, propertyType));
     }
 }

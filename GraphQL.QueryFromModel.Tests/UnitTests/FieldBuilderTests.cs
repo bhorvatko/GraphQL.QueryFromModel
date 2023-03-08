@@ -13,7 +13,7 @@ namespace GraphQL.QueryFromModel.Tests.UnitTests
         private FieldBuilderFactory fieldBuilderFactory = new FieldBuilderFactory();
 
         [Fact]
-        public void GivenALiteralType_BuildingTheArgument_ReturnsTheExpectedResult()
+        public void GivenALiteralType_BuildingTheField_ReturnsTheExpectedResult()
         {
             string argument = string.Empty;
 
@@ -23,7 +23,7 @@ namespace GraphQL.QueryFromModel.Tests.UnitTests
         }
 
         [Fact]
-        public void GivenAnEnumerableOfLiterals_BuildingTheArgument_ReturnsTheExpectedResult()
+        public void GivenAnEnumerableOfLiterals_BuildingTheField_ReturnsTheExpectedResult()
         {
             IEnumerable<string> argument = new List<string>() { "Test1", "Test2" };
 
@@ -33,7 +33,7 @@ namespace GraphQL.QueryFromModel.Tests.UnitTests
         }
 
         [Fact]
-        public void GivenAComplexType_BuildingTheArgument_ReturnsTheExpectedResult()
+        public void GivenAComplexType_BuildingTheField_ReturnsTheExpectedResult()
         {
             var argument = new { StrProp = "StrTest", IntProp = 1 };
 
